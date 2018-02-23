@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       # Session
         post '/signup', to: 'sessions#signup'
         post '/login', to: 'sessions#login'
+        get '/current_user', to: 'sessions#get_current_user'
     end
   end
 

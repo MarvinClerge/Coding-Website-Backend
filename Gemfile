@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Faker to seed database with fake data
 gem 'faker'
+# Use JWT to issue json tokens and authenticate users
+gem 'jwt'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
