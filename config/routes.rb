@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       # Users
         # Get general information for users
         resources :users, only: [:show, :create, :update, :destroy]
+
+      # Session
+        post '/signup', to: 'sessions#signup'
+        post '/login', to: 'sessions#login'
     end
   end
 
