@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 5) do
 
   create_table "codes", force: :cascade do |t|
     t.string "content"
-    t.string "languange"
+    t.string "language"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

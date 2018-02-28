@@ -9,6 +9,9 @@ Rails.application.routes.draw do
         resources :users, only: [:show, :create, :update, :destroy]
       # Codes
         # Get all code for individual user
+        delete '/delete', to: 'codes#destroy'
+        post '/save', to: 'codes#save'
+        get '.group_load/:user_id', to: 'codes#index'
         resources :users, only: [:show, :create, :update, :destroy]
       # Comments
         # Get all comments for individual challenge

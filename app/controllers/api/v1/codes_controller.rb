@@ -1,20 +1,23 @@
 class Api::V1::CodesController < ApplicationController
-  def show
-    @code = Code.find(params[:code_id])
+  def save
+    @user = User.find(params[:user_id])
 
-    if @code
-      render json: @code
+    if params[:code_id]
+      update
     else
-      render json: {error: "Could not find code"}
+      create
     end
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @code = Code.new(code_params)
+    @code = Code.new(
+      user: @user,
+      content: params[:code],
+      language: params[:language]
+    )
 
     if @code.save
-      render json: @code
+      render json: {code: @code}
     else
       render json: {error: "Unable to create code"}
     end
@@ -22,33 +25,23 @@ class Api::V1::CodesController < ApplicationController
 
   def update
     @code = Code.find(params[:code_id])
-    @code.update(code_params)
+    @code.update(content: params[:code])
 
     if @code.save
-      render json: @code
+      render json: {code: @code}
     else
-      render json: {error: "Unable to update code", errors: @code.errors}
+      render json: {error: "Unable to update code"}
     end
   end
 
   def destroy
     @code = Code.find(params[:code_id])
 
-    if @code.destroy
-      render json: {message: "Code deleted"}
+    if @code && @code.destroy
+      render json: {code_id: params[:code_id], message: "code deleted"}
     else
-      render json: {error: "Unable to delete code"}
+      render json: {error: "unable to delete code"}
     end
   end
 
-  private
-
-  def code_params
-    params.require(:code).permit(
-      :content,
-      :language,
-      :user_id,
-      :challenge_id
-    )
-  end
 end
