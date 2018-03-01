@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # rename routes
   namespace :api do
     namespace :v1 do
       # Challenges
         # Get all challenge for user to search through
         # Get individual challenge
+        post '/submit', to: 'challenges#create'
         resources :users, only: [:show, :create, :update, :destroy]
       # Codes
         # Get all code for individual user

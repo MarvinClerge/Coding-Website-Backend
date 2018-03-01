@@ -16,15 +16,20 @@ ActiveRecord::Schema.define(version: 5) do
   enable_extension "plpgsql"
 
   create_table "challenges", force: :cascade do |t|
-    t.string "content"
-    t.string "test"
-    t.string "language"
-    t.string "description"
     t.integer "level"
-    t.string "category"
     t.integer "experience"
+    t.string "language"
+    t.string "category"
+    t.string "title"
+    t.string "content"
+    t.string "description"
+    t.string "test_value"
+    t.string "test_expected"
+    t.string "test_description"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
   create_table "codes", force: :cascade do |t|
@@ -61,13 +66,13 @@ ActiveRecord::Schema.define(version: 5) do
     t.string "username"
     t.string "password_digest"
     t.string "image"
-    t.string "email"
     t.string "level"
     t.string "experience"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "challenges", "users"
   add_foreign_key "codes", "users"
   add_foreign_key "comments", "challenges"
   add_foreign_key "comments", "users"

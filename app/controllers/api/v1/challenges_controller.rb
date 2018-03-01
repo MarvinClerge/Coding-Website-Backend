@@ -1,16 +1,15 @@
 class Api::V1::ChallengesController < ApplicationController
-  def show
-    @challenge = Challenge.find(params[:challenge_id])
-
-    if @challenge
-      render json: @challenge
-    else
-      render json: {error: "Could not find challenge"}
-    end
-  end
-
   def create
-    @challenge = Challenge.new(challenge_params)
+    form = params[:form]
+    @challenge = Challenge.new(
+      user: User.find(params[:user_id]),
+      content: form[:content],
+      title: form[:title],
+      description: form[:description],
+      test_value: form[:testValue],
+      test_expected: form[:testExpected],
+      test_description: form[:testDescription]
+    )
 
     if @challenge.save
       render json: @challenge
