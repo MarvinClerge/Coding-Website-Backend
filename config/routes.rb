@@ -7,20 +7,24 @@ Rails.application.routes.draw do
       # Challenges
         # Get all challenge for user to search through
         # Get individual challenge
+        get '/challenges', to: 'challenges#index'
         post '/submit', to: 'challenges#create'
-        resources :users, only: [:show, :create, :update, :destroy]
+
       # Codes
         # Get all code for individual user
         delete '/delete', to: 'codes#destroy'
         post '/save', to: 'codes#save'
         get '.group_load/:user_id', to: 'codes#index'
         resources :users, only: [:show, :create, :update, :destroy]
+
       # Comments
         # Get all comments for individual challenge
         resources :users, only: [:show, :create]
+
       # User_Challenges
         # Get challenges of individual user
         resources :users, only: [:show, :create, :update]
+        
       # Users
         # Get general information for users
         resources :users, only: [:show, :create, :update, :destroy]

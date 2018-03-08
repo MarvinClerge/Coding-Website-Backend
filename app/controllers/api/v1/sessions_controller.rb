@@ -45,7 +45,6 @@ class Api::V1::SessionsController < ApplicationController
       end
 
     else
-
       # Get the challenges
       render json: {challenges: @challenges}
 

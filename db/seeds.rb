@@ -1,18 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Challenge.destroy_all
 Code.destroy_all
 User.destroy_all
+
+
 user = User.create!(username: 'marvin', password: 'moon')
 
-content = "arr1 =  [\"Sydney\", \"Melbourne\", \"Brisbane\", \"Perth\"],
-arr2 =  [\"New York\", \"Miami\", \"San Fransisco\", \"Los Angeles\"],
+content = "arr1 = [\"Sydney\", \"Melbourne\", \"Brisbane\", \"Perth\"],
+arr2 = [\"New York\", \"Miami\", \"San Fransisco\", \"Los Angeles\"],
 result = arr1.concat(arr2).toString()"
 
 Code.create!(
@@ -23,10 +17,31 @@ Code.create!(
 
 Challenge.create!(
   user: user,
-  title: "Adding Numbers",
-  description: "Adding to this mystery number should result in 2",
-  content: "//ENTER CODE",
-  test_description: "result should equal 2",
-  test_value: "1",
-  test_expected: "2"
+  title: "Reverse a string",
+  description: "Reverse the provide string without using the .reverse() method",
+  test_description: "expected 'olleh'",
+  test_value: "hello",
+  test_value_type: "string",
+  test_expected: "olleh",
+  test_expected_type: "string"
+)
+Challenge.create!(
+  user: user,
+  title: "Squared",
+  description: "square the privided number",
+  test_description: "expected 9",
+  test_value: '3',
+  test_value_type: "number",
+  test_expected: '9',
+  test_expected_type: "number"
+)
+Challenge.create!(
+  user: user,
+  title: "Boolean",
+  description: "return true",
+  test_description: "is true",
+  test_value: 'true',
+  test_value_type: "boolean",
+  test_expected: 'true',
+  test_expected_type: "boolean"
 )
