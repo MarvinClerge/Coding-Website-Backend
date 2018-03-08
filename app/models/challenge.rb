@@ -4,5 +4,5 @@ class Challenge < ApplicationRecord
   belongs_to :user
   has_many :users, through: :user_challenges
 
-  validates :content,:title,:description,:test_value,:test_description,:test_expected, presence: true
+  validates :title,:description,:test_value,:test_description,:test_expected, presence: true
 end

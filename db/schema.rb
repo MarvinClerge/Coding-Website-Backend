@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 5) do
     t.string "content"
     t.string "description"
     t.string "test_value"
+    t.string "test_value_type"
     t.string "test_expected"
+    t.string "test_expected_type"
     t.string "test_description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
