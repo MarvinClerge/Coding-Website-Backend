@@ -15,6 +15,7 @@ Code.create!(
   language: 'javascript'
 )
 
+# Reverse String
 Challenge.create!(
   user: user,
   title: "Reverse a string",
@@ -25,23 +26,39 @@ Challenge.create!(
   test_expected: "olleh",
   test_expected_type: "string"
 )
+
+# Square Number
 Challenge.create!(
   user: user,
-  title: "Squared",
-  description: "square the privided number",
-  test_description: "expected 9",
+  title: "Square the Number",
+  description: "Square and return the provided number",
+  test_description: "the number is squared",
   test_value: '3',
   test_value_type: "number",
   test_expected: '9',
   test_expected_type: "number"
 )
+
+# Check Prime
 Challenge.create!(
   user: user,
-  title: "Boolean",
-  description: "return true",
-  test_description: "is true",
-  test_value: 'true',
+  title: "Prime?",
+  description: "Create a function that returns if a number is a prime",
+  test_description: "the number is a prime",
+  test_value: '137',
   test_value_type: "boolean",
   test_expected: 'true',
   test_expected_type: "boolean"
+)
+
+# Counting Zeros
+Challenge.create!(
+  user: user,
+  title: "Counting Zeros",
+  description: "Count Total number of zeros from 1 upto n",
+  test_description: "returns the correct amount of zeros",
+  test_value: '2014',
+  test_value_type: "number",
+  test_expected: '223',
+  test_expected_type: "number"
 )
